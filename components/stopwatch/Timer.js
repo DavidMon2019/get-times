@@ -2,9 +2,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Timer.css';
-
 import timeFormat from './utils/timeFormat';
+import { Container } from 'react-bootstrap';
 
 class Timer extends Component {
 
@@ -20,9 +19,9 @@ class Timer extends Component {
     const { time } = this.props;
 
     return (
-      <div className="Timer">
+      <Container className="Timer">
         {timeFormat(time)}
-      </div>
+      </Container>
     );
   }
 }

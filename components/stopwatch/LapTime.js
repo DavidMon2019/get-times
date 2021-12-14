@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './LapTime.css';
 
 import timeFormat from '../stopwatch/utils/timeFormat';
 
