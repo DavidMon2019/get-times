@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { Container, Table } from 'react-bootstrap'
 
 import LapTime from './LapTime';
 
 class LapTimeList extends Component {
 
   static proptTypes = {
-    timeList : PropTypes.array
+    timeList: PropTypes.array
   };
 
   static defaultProps = {
-    timeList : []
+    timeList: []
   };
 
   render() {
@@ -19,27 +19,17 @@ class LapTimeList extends Component {
     const { timeList } = this.props;
 
     return (
-      <div className="LapTimeList">
-        <div className="LapTimeList__listwrap">
-
-          <div className="LapTimeList__headers">
-            <span> Lap </span> <span> Time </span><span> Duration </span>
-          </div>
-
-          <ul className="LapTimeList__list" > 
-            {
-              timeList.map( (time, index) => {
-                return (
-                  <li key={ index }>
-                    <LapTime lap={ index + 1 } time={ time } duration={time} />
-                  </li>
-                )
-              })
-            }
-          </ul>
-
-        </div>
-      </div>
+      <Container>
+        {
+          timeList.map((time, index) => {
+            return (
+              <div key={index}>
+                <LapTime lap={index + 1} time={time} duration={time - timeList[index - 1]} />
+              </div>
+            )
+          })
+        }
+      </Container>
     );
   }
 }

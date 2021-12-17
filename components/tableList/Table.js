@@ -6,8 +6,7 @@ class TableComponent extends Component {
 
     render() {
         return (
-            <Container>
-            <Table responsive="sm">
+            <Table striped bordered hover variant="ligth">
               <thead>
                 <tr>
                   <th>#</th>
@@ -52,8 +51,6 @@ class TableComponent extends Component {
                 </tr>
               </tbody>
             </Table>
- 
-          </Container>
         );
     }
 }
