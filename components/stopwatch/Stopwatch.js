@@ -8,6 +8,7 @@ import LapTimeList from './LapTimeList';
 import Config from './constants/Config';
 
 import Dropdown from 'react-bootstrap/Dropdown'
+import { Card } from 'react-bootstrap';
 
 
 function getDefaultState() {
@@ -72,28 +73,45 @@ class Stopwatch extends Component {
     return (
 
 
-      <div className="Stopwatch">
+      <Card >
+        <Card.Header>
+          <h1>Formulario Toma de Tiempos
+            <Timer time={time} />
+          </h1>
 
-        <Dropdown>
-          <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-            Dropdown Button
-          </Dropdown.Toggle>
+          <Dropdown className="d-inline mx-2">
+            <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+              Operación
+            </Dropdown.Toggle>
 
-          <Dropdown.Menu variant="dark">
-            <Dropdown.Item href="#/action-1" active>
-              Action
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+            <Dropdown.Menu variant="dark">
+              <Dropdown.Item href="#/action-1" active>
+                Action
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
 
-        <h1>Simple Stopwatch App</h1>
+          <Dropdown className="d-inline mx-2">
+            <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+              Estilo
+            </Dropdown.Toggle>
 
-        <Timer time={time} />
+            <Dropdown.Menu variant="dark">
+              <Dropdown.Item href="#/action-1" active>
+                Action
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
 
+        </Card.Header>
         <Controls
           isRunning={isRunning}
           start={() => this.start()}
@@ -103,7 +121,7 @@ class Stopwatch extends Component {
         />
 
         <LapTimeList timeList={timeList} />
-      </div>
+      </Card>
     );
   }
 }

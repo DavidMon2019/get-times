@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ButtonGroup } from 'react-bootstrap';
 
-
 class Controls extends Component {
 
   static proptTypes = {
@@ -21,32 +20,44 @@ class Controls extends Component {
     const { isRunning, start, stop, reset, addLapTime } = this.props;
 
     return (
-      <ButtonGroup className="mb-3">
-        {!isRunning ?
+
+      <div style={{ position: "fixed", top: "50%", right: 0 }}>
+        <tr>
+          {!isRunning ?
+            <button
+              onClick={start}
+              type="button" class="btn btn-primary btn-lg"
+              ref="startBtn" > <i class="fa fa-play"></i> </button>
+            : null}
+        </tr>
+        <tr>
+
+          {isRunning ?
+            <button
+              onClick={stop}
+              type="button" class="btn btn-success btn-lg"
+              ref="stopBtn" ><i class="fa fa-pause"> </i> </button>
+            : null}
+        </tr>
+        <tr>
           <button
-            onClick={start}
-            type="button" class="btn btn-primary"
-            ref="startBtn" > Start </button>
-          : null}
+            onClick={reset}
+            disabled={isRunning} type="button" class="btn btn-danger btn-lg"
+            ref="resetBtn" > <i class="fa fa-stop"></i> </button>
+        </tr>
 
-        {isRunning ?
+        <tr>
           <button
-            onClick={stop}
-            type="button" class="btn btn-primary"
-            ref="stopBtn" > Stop </button>
-          : null}
+            onClick={addLapTime}
+            disabled={!isRunning}
+            type="button" class="btn btn-warning btn-lg"
+            ref="lapBtn" > <i class="fa fa-undo"></i> </button>
 
-        <button
-          onClick={reset}
-          disabled={isRunning} type="button" class="btn btn-primary"
-          ref="resetBtn" > Reset </button>
+        </tr>
 
-        <button
-          onClick={addLapTime}
-          disabled={!isRunning}
-          type="button" class="btn btn-primary"
-          ref="lapBtn" > Lap Time </button>
-      </ButtonGroup>
+
+      </div>
+
     );
   }
 }

@@ -22,26 +22,14 @@ class LapTime extends Component {
 
   render() {
 
-    const { lap, time, duration,lista } = this.props;
+    const { lap, time, duration, lista } = this.props;
 
     return (
-      <Table striped bordered hover variant="ligth">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Time</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="LapTime__lap" >{lap}</td>
-            <td className="LapTime__time" >{timeFormat(time)}</td>
-            <td className='LapTime__time'>{timeFormat(duration)}</td>
-          </tr>
-        </tbody>
-      </Table>
-
+      <tr>
+        <td>{lap}</td>
+        <td>{timeFormat(time)}</td>
+        <td>{timeFormat(duration)}</td>
+      </tr>
 
     );
   }

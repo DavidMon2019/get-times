@@ -3,12 +3,14 @@ import { StyleSheet } from "react-native";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
 import { TableComponent } from "../components/tableList";
+import { Container } from "react-bootstrap";
 
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
+    <Container >
+      
       <TableComponent/>
-    </View>
+    </Container>
   );
 }
 

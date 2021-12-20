@@ -19,17 +19,34 @@ class LapTimeList extends Component {
     const { timeList } = this.props;
 
     return (
-      <Container>
-        {
-          timeList.map((time, index) => {
-            return (
-              <div key={index}>
-                <LapTime lap={index + 1} time={time} duration={time - timeList[index - 1]} />
-              </div>
-            )
-          })
-        }
-      </Container>
+      <Table striped bordered hover variant="ligth">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Time</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            timeList.map((time, index) => {
+              if (index == 0) {
+                return (
+                  <div key={index}>
+                    <LapTime lap={index + 1} time={time} duration={time} />
+                  </div>
+                )
+
+              }
+              return (
+                <div key={index}>
+                  <LapTime lap={index + 1} time={time} duration={time - timeList[index - 1]} />
+                </div>
+              )
+            })
+          }
+        </tbody>
+      </Table>
     );
   }
 }

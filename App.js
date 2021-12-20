@@ -7,6 +7,8 @@ import { useLoadedAssets } from "./hooks/useLoadedAssets";
 import Navigation from "./navigation";
 import { useColorScheme } from "react-native";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'font-awesome/css/font-awesome.min.css';
+
 
 export default function App() {
   const isLoadingComplete = useLoadedAssets();
